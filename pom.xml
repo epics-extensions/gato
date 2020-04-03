@@ -1,0 +1,172 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>fr.cea.irfu.epics</groupId>
+	<artifactId>Gato</artifactId>
+	<description>GenerAtor TOol for EPICS Client</description>
+	<version>0.0.1</version>
+
+	<scm>
+		<connection>scm:git:git@drf-gitlab.cea.fr:LDISC/rdepics.git</connection>
+		<developerConnection>scm:git:git@github.com:epics-extensions/gato.git</developerConnection>
+		<url>https://github.com/epics-extensions/gato.git</url>
+		<tag>Gato-0.0.1</tag>
+	</scm>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.epics</groupId>
+			<artifactId>caj</artifactId>
+			<version>1.1.15</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jdesktop.swingx</groupId>
+			<artifactId>swingx</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- EMBEDDED library come from internal repository -->
+		
+		<!-- Aka VDCT https://github.com/epics-extensions/VisualDCT -->
+		<dependency>
+			<groupId>com.cosylab.vdct</groupId>
+			<artifactId>VisualDCT</artifactId>
+			<version>2.8.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/com.cosylab.vdct.VisualDCT-2.8.2.jar</systemPath>
+		</dependency>
+		
+		<!-- IRFU epics dev https://drf-gitlab.cea.fr/LDISC/rdepics -->
+		<dependency>
+			<groupId>heps.epics</groupId>
+			<artifactId>CafeJava</artifactId>
+			<version>0.0.5</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/heps.epics.CafeJava-0.0.5.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>heps.epics</groupId>
+			<artifactId>CAFETool</artifactId>
+			<version>0.0.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/heps.epics.CAFETool-0.0.2.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>heps.epics</groupId>
+			<artifactId>plcparser</artifactId>
+			<version>2.2.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/heps.epics.plcparser-2.2.3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>heps.epics</groupId>
+			<artifactId>dxf2java</artifactId>
+			<version>2.2.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/heps.epics.dxf2java-2.2.3.jar</systemPath>
+		</dependency>
+		
+		<!-- SOLEIL comete https://svn.code.sf.net/p/comete/ -->
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>CometeDefinition</artifactId>
+			<version>2.5.1-5756</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib.comete-CometeDefinition-2.5.1-5756.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>CometeAWT</artifactId>
+			<version>2.1.11-5689</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib.comete-CometeAWT-2.1.11-5689.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>CometeSwing</artifactId>
+			<version>2.6.4-5814</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib.comete-CometeSwing-2.6.4-5814.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>SwingUtilities</artifactId>
+			<version>1.3.6-5812</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib-SwingUtilities-1.3.6-5812.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>DataConnectionManagement</artifactId>
+			<version>1.3.2-5816</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib-DataConnectionManagement-1.3.2-5816.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>BasicUtilities</artifactId>
+			<version>1.3.6-5812</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib-BasicUtilities-1.3.6-5812.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>AwtUtilities</artifactId>
+			<version>1.3.6-5812</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib-AwtUtilities-1.3.6-5812.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>SwingXUtilities</artifactId>
+			<version>1.3.6-5812</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib-SwingXUtilities-1.3.6-5812.jar</systemPath>
+		</dependency>
+				<dependency>
+			<groupId>fr.soleil.lib</groupId>
+			<artifactId>ExpressionAbstraction</artifactId>
+			<version>1.3.6-5812</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fr.soleil.lib-ExpressionAbstraction-1.3.6-5812.jar</systemPath>
+		</dependency>
+		<!-- Icons for comete -->
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>famfamfam</artifactId>
+			<version>1.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/com.famfamfam.silk-1.3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>fatcow-icons</artifactId>
+			<version>1.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/com.fatcow.fatcow-icons-1.0.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.soleil.lib.comete</groupId>
+			<artifactId>tango-icon-theme</artifactId>
+			<version>0.8.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.tango-project.tango-icon-theme-0.8.0.jar</systemPath>
+		</dependency>
+
+		</dependencies>
+</project>
