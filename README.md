@@ -7,7 +7,7 @@ Gato provide set of tool :
  * CSS and Phoebus plugin to Generate an OPI or a BOB view from a EPICS db file or a custom pv list
 
 ## Documentation
-https://github.com/epics-extensions/gato/doc/PlcParserTool.pdf
+https://github.com/epics-extensions/gato/blob/master/doc/PlcParserTool.pdf
 
 ## Downloads
 
