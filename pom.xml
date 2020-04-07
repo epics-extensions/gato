@@ -6,6 +6,7 @@
 	<artifactId>Gato</artifactId>
 	<description>GenerAtor TOol for EPICS Client</description>
 	<version>0.0.1</version>
+	<name>distribution</name>
 
 	<scm>
 		<connection>scm:git:git@drf-gitlab.cea.fr:LDISC/rdepics.git</connection>
@@ -27,8 +28,49 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-	</build>
 
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+<!--               <outputDirectory>${project.build.directory}/lib</outputDirectory> -->
+			  <outputDirectory>${project.build.directory}/${artifactId}-${version}-${name}.dir/${artifactId}-${version}/lib</outputDirectory>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      	<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-2</version>
+				<executions>
+					<execution>
+						<id>${name}</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attached</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+    </plugins>
+	</build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.epics</groupId>

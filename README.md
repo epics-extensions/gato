@@ -9,11 +9,9 @@ Gato provide set of tool :
 ## Documentation
 https://github.com/epics-extensions/gato/blob/master/doc/PlcParserTool.pdf
 
-## Downloads
+## Sources code
+All the source code are available in -source.jar file, and are published under public license
 
-Distribution archives of released versions (containing binaries,
-sources, javadoc, and the documentation web site) are available from the
-[releases page](https://github.com/epics-extensions/gato/releases).
 
 ## Web Site
 
@@ -24,13 +22,13 @@ website is included in the distribution archives (in the `site` folder).
 ## Building from Sources
 
 Gato is a [Maven](https://maven.apache.org/) project.
-Any recent Java IDE should be able to open and compile it.
-VisualDCT is known to compile using Java 8 and Java 10.
+Using Java 8
+Execute maven "clean install" goal
+It will generate a distribution folder including .bat and .sh file to execute the tool
 
-Apart from the default lifecycle, two additional Maven goals are useful:
-
-  * **site** Generate the website with user, reference and project documentation
-  * **assembly:single** Generate the distribution archives as tar and zip
+## CSS plugins
+CSS plugins  : copy css/*.jar files into css installation plugins folder 
+Phoebus plugins : copy lib/*.jar and phoebus/*.jar file into phoebus lib installation folder
 
 ## Continuous Integration
 
